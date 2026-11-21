@@ -163,6 +163,46 @@ footer{padding:22px max(5vw,16px);font-size:14px;color:var(--mut);text-align:cen
 .early h3{font-size:18px;color:var(--ink);margin-bottom:4px}.early p{margin:0 0 8px}
 .early ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:6px 26px}.early li a{color:var(--ink)}.early small{display:block;font-size:13px}
 .early .all{display:inline-block;margin-top:10px;color:var(--mut)}
+.pu,.prnote,.prname{display:none}
+@media print{
+@page{size:A4;margin:14mm 14mm 16mm}
+:root{color-scheme:light}
+html,body{background:#fff!important;color:#141615!important;font-size:11pt}
+body{font-family:Barlow,Inter,Arial,sans-serif}
+h1,h2,h3{font-family:"Barlow Condensed",Anton,Arial Narrow,sans-serif;font-weight:700}
+nav,.btns,.filters,.lang,.trk button,.bar,.yt img,.yt svg,.yt small,.yt iframe,.ig iframe,.pod iframe,.spot,.pdfbtn,#cvbtn,.tz,.tzlink,.quick,.go,.status::before{display:none!important}
+.band{padding:8mm 0!important;background:#fff!important;color:#141615!important}
+.studio,.doc,.contact{background:#fff!important;color:#141615!important}
+.studio p,.doc p,.by,.acts span,.people span,.contact p{color:#333!important}
+.doc::before{display:none}.doc h2,.acts b{color:#1d6b35!important}
+.status{background:#f2c230!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.hero .wrap{grid-template-columns:55mm 1fr!important;gap:8mm!important}
+.portrait{aspect-ratio:auto!important;height:70mm}.chyron{display:none}
+.hero h1{font-size:30pt}.lead{font-size:12pt}
+.studio .head img{width:28mm}.role{color:#0b8f6f!important}
+.grid{display:block!important}.vid{background:none!important;transform:none!important;padding:2mm 0;border-bottom:1px solid #ddd;border-radius:0;break-inside:avoid}
+.thumb{display:none!important}.vid .t{color:#141615!important;padding:0!important;font-size:11pt}
+.pu{display:block;font-size:9pt;color:#666}
+.ig{height:auto!important;background:none!important;padding:1.5mm 0;border-bottom:1px solid #ddd;border-radius:0}.ig .pu{font-size:10pt;color:#333}
+.reels{margin-top:6mm}
+.doc .wrap{grid-template-columns:45mm 1fr!important}.doc img{position:static!important;box-shadow:none!important}
+.acts{gap:4mm;margin:4mm 0}.people span{border-color:#ccc!important}
+.trk{grid-template-columns:1fr auto!important;padding:2mm 0!important;border:0!important;border-bottom:1px solid #ddd!important;border-radius:0!important;margin:0!important;break-inside:avoid;background:none!important}
+.aud{gap:6mm;margin-top:5mm}
+.box{break-inside:avoid;border-color:#ddd!important}
+.row{break-inside:avoid}
+#documental,#perfil{break-before:page}
+h2,h3,.sec-head{break-after:avoid}.pod,.aud>div,.rows{break-inside:avoid}
+.prname{display:block;margin:0 0 3mm}.prname b{display:block;font:700 20pt "Barlow Condensed",Anton,sans-serif;color:#0b8f6f}.prname span{font-size:10pt;color:#555}
+.soc a.pdfbtn,.soc a#cvbtn{display:none!important}
+.teaser .pu{font-size:10pt}
+.contact .wrap{display:block}.contact h2{font-size:26pt}.mail{display:block;margin-top:3mm;color:#0b8f6f!important}
+.early{break-inside:avoid}
+.soc{display:block!important}.soc a{display:block!important;background:none!important;color:#141615!important;padding:0!important;min-height:0!important;font-size:10pt}.soc a::after{content:" — " attr(href);color:#666;font-weight:400}
+.prnote{display:block;text-align:center;font-size:9pt;color:#666;margin:4mm 0 0}
+footer{padding:2mm 0}
+a{text-decoration:none}
+}
 </style>
 <script data-goatcounter="https://elcondado.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 </head>
@@ -181,10 +221,11 @@ footer{padding:22px max(5vw,16px);font-size:14px;color:var(--mut);text-align:cen
     <div class="chyron"><b>Marc Alonso i Bueno</b><i data-i="chyron">Periodista · Producció de TV, ràdio i premsa</i></div>
   </div>
   <div>
+    <p class="prname"><b>Marc Alonso i Bueno</b><span data-i="chyron">Periodista · Producció de TV, ràdio i premsa</span></p>
     <h1 data-i="h1">Esport, cultura i política</h1>
     <p class="lead" data-i="lead"></p>
     <p data-i="p2"></p>
-    <div class="btns"><a class="btn fill" href="#el-condado" data-i="cta1">Veure treballs</a><a class="btn" href="#contacte" data-i="cta2">Contacte</a></div>
+    <div class="btns"><a class="btn fill" href="#el-condado" data-i="cta1">Veure treballs</a><a class="btn" href="#contacte" data-i="cta2">Contacte</a><a class="btn pdfbtn" href="pdf/Portfolio_Marc_Alonso_CA.pdf" target="_blank" rel="noopener" data-i="pdfB">Descarrega el portfolio (PDF)</a></div>
     <div class="quick" data-i="quick"></div>
   </div>
 </div></header>
@@ -212,7 +253,7 @@ footer{padding:22px max(5vw,16px);font-size:14px;color:var(--mut);text-align:cen
     <p class="by" data-i="dBy"></p>
     <p data-i="dLog"></p>
     <p data-i="dSyn"></p>
-    <div class="teaser"><h3 style="font-size:20px;margin:6px 0 10px" data-i="tzH">Teaser del documental</h3><div class="thumb yt tz" data-yt="Bhmk9Lj7eF0" role="button" tabindex="0" aria-label="Teaser"><img src="https://i.ytimg.com/vi/Bhmk9Lj7eF0/hqdefault.jpg" alt="" loading="lazy"><small>Teaser</small><svg viewBox="0 0 54 54" aria-hidden="true"><circle cx="27" cy="27" r="26" fill="#f2c230"/><path d="M22 17l16 10-16 10z" fill="#1b1503"/></svg></div></div>
+    <div class="teaser"><h3 style="font-size:20px;margin:6px 0 10px" data-i="tzH">Teaser del documental</h3><span class="pu">youtu.be/Bhmk9Lj7eF0</span><div class="thumb yt tz" data-yt="Bhmk9Lj7eF0" role="button" tabindex="0" aria-label="Teaser"><img src="https://i.ytimg.com/vi/Bhmk9Lj7eF0/hqdefault.jpg" alt="" loading="lazy"><small>Teaser</small><svg viewBox="0 0 54 54" aria-hidden="true"><circle cx="27" cy="27" r="26" fill="#f2c230"/><path d="M22 17l16 10-16 10z" fill="#1b1503"/></svg></div></div>
     <div class="acts" id="acts"></div>
     <h3 style="font-size:20px" data-i="dPeople">Testimonis</h3>
     <div class="people" id="people"></div>
@@ -244,6 +285,7 @@ footer{padding:22px max(5vw,16px);font-size:14px;color:var(--mut);text-align:cen
     <a class="mail" href="mailto:podcastelcondado@gmail.com">podcastelcondado@gmail.com</a>
     <div class="soc">
       <a class="cvb" id="cvbtn" href="cv/CV_Marc_Alonso_CAT.pdf" target="_blank" rel="noopener" data-i="cvB">Descarrega el CV</a>
+      <a class="cvb pdfbtn" href="pdf/Portfolio_Marc_Alonso_CA.pdf" target="_blank" rel="noopener" data-i="pdfB">Descarrega el portfolio (PDF)</a>
       <a href="https://www.linkedin.com/in/marc-alonso-bueno-267721a7/" target="_blank" rel="noopener">LinkedIn</a>
       <a href="https://www.instagram.com/marcalob97" target="_blank" rel="noopener">Instagram</a>
       <a href="https://x.com/MarcAloB" target="_blank" rel="noopener">X</a>
@@ -251,12 +293,13 @@ footer{padding:22px max(5vw,16px);font-size:14px;color:var(--mut);text-align:cen
     </div>
   </div>
 </div></section>
+<p class="prnote" data-i="prNote"></p>
 <footer>© 2026 Marc Alonso i Bueno · Sant Andreu de la Barca</footer>
 
 <script>
 {
 const T={
-ca:{epH:"Últims episodis",wH:"Primers escrits",wP:"Textos d'abans de la carrera (2018–2019), al blog d'El Condado.",wAll:"Tot el blog →",wPrev:"Previa",wCron:"Crònica",wRep:"Reportatge",wSA:"publicat originalment a Sexto Anillo",tzH:"Teaser del documental",tzB:"Veure el teaser a YouTube →",cvB:"Descarrega el CV",cvF:"cv/CV_Marc_Alonso_CAT.pdf",podR:"Subscriu-te per RSS",aud:{glories:["Inauguració del parc de les Glòries","Notícia · Barcelona"],suicidi:["Augmenten les consultes sobre suïcidi","Notícia · Salut"],ecall:["Avisos automàtics d'accidents","Reportatge · L'eCall dels cotxes i la detecció d'accidents dels mòbils"],alemanya:["Arrenca la jornada electoral a Alemanya","Crònica"],sanremo:["Olly guanya el Festival de Sanremo","Crònica"],tibidabo:["El Tibidabo obre temporada i apuja preus","Notícia"],alzheimer:["Un test per detectar l'Alzheimer de manera precoç","Notícia · L'empresa catalana Starlab"],but:["Butlletí informatiu","Butlletí complet"]},nPod:"Podcast",podH:"Podcast",podP:"Els últims episodis del podcast d'El Condado. Escolta'ls aquí mateix o subscriu-t'hi des de la teva aplicació de podcasts.",podB:"Escolta a Spotify →",nCond:"El Condado",nDoc:"Documental",nRad:"Ràdio",nPerf:"Perfil",nCont:"Contacte",
+ca:{pdfB:"Descarrega el portfolio (PDF)",pdfF:"pdf/Portfolio_Marc_Alonso_CA.pdf",prNote:"Versió en PDF. Vídeos, àudios i episodis es poden escoltar a podcastelcondado.github.io/Portfolio",epH:"Últims episodis",wH:"Primers escrits",wP:"Textos d'abans de la carrera (2018–2019), al blog d'El Condado.",wAll:"Tot el blog →",wPrev:"Previa",wCron:"Crònica",wRep:"Reportatge",wSA:"publicat originalment a Sexto Anillo",tzH:"Teaser del documental",tzB:"Veure el teaser a YouTube →",cvB:"Descarrega el CV",cvF:"cv/CV_Marc_Alonso_CAT.pdf",podR:"Subscriu-te per RSS",aud:{glories:["Inauguració del parc de les Glòries","Notícia · Barcelona"],suicidi:["Augmenten les consultes sobre suïcidi","Notícia · Salut"],ecall:["Avisos automàtics d'accidents","Reportatge · L'eCall dels cotxes i la detecció d'accidents dels mòbils"],alemanya:["Arrenca la jornada electoral a Alemanya","Crònica"],sanremo:["Olly guanya el Festival de Sanremo","Crònica"],tibidabo:["El Tibidabo obre temporada i apuja preus","Notícia"],alzheimer:["Un test per detectar l'Alzheimer de manera precoç","Notícia · L'empresa catalana Starlab"],but:["Butlletí informatiu","Butlletí complet"]},nPod:"Podcast",podH:"Podcast",podP:"Els últims episodis del podcast d'El Condado. Escolta'ls aquí mateix o subscriu-t'hi des de la teva aplicació de podcasts.",podB:"Escolta a Spotify →",nCond:"El Condado",nDoc:"Documental",nRad:"Ràdio",nPerf:"Perfil",nCont:"Contacte",
 chyron:"Periodista · Producció de TV, ràdio i premsa",h1:"Esport, cultura i política",
 lead:"Soc periodista i explico l'actualitat esportiva, cultural i política. A més, estic especialitzat en producció de televisió, ràdio i premsa. Amb El Condado som mitjà acreditat a la NFL, el Benidorm Fest i altres grans esdeveniments.",
 p2:"Combino rigor informatiu i narrativa audiovisual: investigo, escric, produeixo, presento i edito, tant en format llarg com en vídeo curt per a xarxes.",
@@ -281,7 +324,7 @@ prof:[["Formació",[["Diploma d'Especialització en Producció de TV, Ràdio i P
 ["Comunicació",[["Community Manager · Barcelona Dragons","Abr. – set. 2024 · Contingut digital i comunicats oficials"],["Creador de contingut · El Condado","Des de nov. 2020 · Pòdcast i cobertures acreditades"]]],
 ["Idiomes",[["Català i castellà","Nadiu"],["Anglès","B2 certificat"]]]],
 ctH:"Parlem?",ctP:"Per a col<span class='pv'>·</span>laboracions, produccions o propostes de feina."},
-es:{epH:"Últimos episodios",wH:"Primeros escritos",wP:"Textos de antes de la carrera (2018–2019), en el blog de El Condado.",wAll:"Todo el blog →",wPrev:"Previa",wCron:"Crónica",wRep:"Reportaje",wSA:"publicado originalmente en Sexto Anillo",tzH:"Teaser del documental",tzB:"Ver el teaser en YouTube →",cvB:"Descarga el CV",cvF:"cv/CV_Marc_Alonso_ESP.pdf",podR:"Suscríbete por RSS",aud:{glories:["Inauguración del parque de las Glòries","Noticia · Barcelona"],suicidi:["Aumentan las consultas sobre suicidio","Noticia · Salud"],ecall:["Avisos automáticos de accidentes","Reportaje · El eCall de los coches y la detección de accidentes de los móviles"],alemanya:["Arranca la jornada electoral en Alemania","Crónica"],sanremo:["Olly gana el Festival de Sanremo","Crónica"],tibidabo:["El Tibidabo abre temporada y sube precios","Noticia"],alzheimer:["Un test para detectar el alzhéimer de forma precoz","Noticia · La empresa catalana Starlab"],but:["Boletín informativo","Boletín completo"]},nPod:"Podcast",podH:"Podcast",podP:"Los últimos episodios del podcast de El Condado. Escúchalos aquí mismo o suscríbete desde tu aplicación de pódcasts.",podB:"Escúchalo en Spotify →",nCond:"El Condado",nDoc:"Documental",nRad:"Radio",nPerf:"Perfil",nCont:"Contacto",
+es:{pdfB:"Descarga el portfolio (PDF)",pdfF:"pdf/Portfolio_Marc_Alonso_ES.pdf",prNote:"Versión en PDF. Los vídeos, audios y episodios se pueden escuchar en podcastelcondado.github.io/Portfolio",epH:"Últimos episodios",wH:"Primeros escritos",wP:"Textos de antes de la carrera (2018–2019), en el blog de El Condado.",wAll:"Todo el blog →",wPrev:"Previa",wCron:"Crónica",wRep:"Reportaje",wSA:"publicado originalmente en Sexto Anillo",tzH:"Teaser del documental",tzB:"Ver el teaser en YouTube →",cvB:"Descarga el CV",cvF:"cv/CV_Marc_Alonso_ESP.pdf",podR:"Suscríbete por RSS",aud:{glories:["Inauguración del parque de las Glòries","Noticia · Barcelona"],suicidi:["Aumentan las consultas sobre suicidio","Noticia · Salud"],ecall:["Avisos automáticos de accidentes","Reportaje · El eCall de los coches y la detección de accidentes de los móviles"],alemanya:["Arranca la jornada electoral en Alemania","Crónica"],sanremo:["Olly gana el Festival de Sanremo","Crónica"],tibidabo:["El Tibidabo abre temporada y sube precios","Noticia"],alzheimer:["Un test para detectar el alzhéimer de forma precoz","Noticia · La empresa catalana Starlab"],but:["Boletín informativo","Boletín completo"]},nPod:"Podcast",podH:"Podcast",podP:"Los últimos episodios del podcast de El Condado. Escúchalos aquí mismo o suscríbete desde tu aplicación de pódcasts.",podB:"Escúchalo en Spotify →",nCond:"El Condado",nDoc:"Documental",nRad:"Radio",nPerf:"Perfil",nCont:"Contacto",
 chyron:"Periodista · Producción de TV, radio y prensa",h1:"Deporte, cultura y política",
 lead:"Soy periodista y cuento la actualidad deportiva, cultural y política. Además, estoy especializado en producción de televisión, radio y prensa. Con El Condado somos medio acreditado en la NFL, el Benidorm Fest y otros grandes eventos.",
 p2:"Combino rigor informativo y narrativa audiovisual: investigo, escribo, produzco, presento y edito, tanto en formato largo como en vídeo corto para redes.",
@@ -306,7 +349,7 @@ prof:[["Formación",[["Diploma de Especialización en Producción de TV, Radio y
 ["Comunicación",[["Community Manager · Barcelona Dragons","Abr. – sep. 2024 · Contenido digital y comunicados oficiales"],["Creador de contenido · El Condado","Desde nov. 2020 · Pódcast y coberturas acreditadas"]]],
 ["Idiomas",[["Catalán y castellano","Nativo"],["Inglés","B2 certificado"]]]],
 ctH:"¿Hablamos?",ctP:"Para colaboraciones, producciones o propuestas de trabajo."},
-en:{epH:"Latest episodes",wH:"Early writing",wP:"Pieces from before my journalism degree (2018–2019), on the El Condado blog.",wAll:"Full blog →",wPrev:"Preview",wCron:"Match report",wRep:"Feature",wSA:"originally published in Sexto Anillo",tzH:"Documentary teaser",tzB:"Watch the teaser on YouTube →",cvB:"Download CV",cvF:"cv/CV_Marc_Alonso_ENG.pdf",podR:"Subscribe via RSS",aud:{glories:["Glòries Park opens","News piece · Barcelona"],suicidi:["Rise in suicide-related consultations","News piece · Health"],ecall:["Automatic crash alerts","Feature · eCall in cars and crash detection on smartphones"],alemanya:["Polling day gets under way in Germany","Report"],sanremo:["Olly wins the Sanremo Festival","Report"],tibidabo:["Tibidabo opens its season with higher prices","News piece"],alzheimer:["A test for early detection of Alzheimer's","News piece · Catalan company Starlab"],but:["News bulletin","Full bulletin"]},nPod:"Podcast",podH:"Podcast",podP:"The latest episodes of the El Condado podcast. Listen right here or subscribe in your podcast app.",podB:"Listen on Spotify →",nCond:"El Condado",nDoc:"Documentary",nRad:"Radio",nPerf:"Profile",nCont:"Contact",
+en:{pdfB:"Download portfolio (PDF)",pdfF:"pdf/Portfolio_Marc_Alonso_EN.pdf",prNote:"PDF version. Videos, audio pieces and episodes are available at podcastelcondado.github.io/Portfolio",epH:"Latest episodes",wH:"Early writing",wP:"Pieces from before my journalism degree (2018–2019), on the El Condado blog.",wAll:"Full blog →",wPrev:"Preview",wCron:"Match report",wRep:"Feature",wSA:"originally published in Sexto Anillo",tzH:"Documentary teaser",tzB:"Watch the teaser on YouTube →",cvB:"Download CV",cvF:"cv/CV_Marc_Alonso_ENG.pdf",podR:"Subscribe via RSS",aud:{glories:["Glòries Park opens","News piece · Barcelona"],suicidi:["Rise in suicide-related consultations","News piece · Health"],ecall:["Automatic crash alerts","Feature · eCall in cars and crash detection on smartphones"],alemanya:["Polling day gets under way in Germany","Report"],sanremo:["Olly wins the Sanremo Festival","Report"],tibidabo:["Tibidabo opens its season with higher prices","News piece"],alzheimer:["A test for early detection of Alzheimer's","News piece · Catalan company Starlab"],but:["News bulletin","Full bulletin"]},nPod:"Podcast",podH:"Podcast",podP:"The latest episodes of the El Condado podcast. Listen right here or subscribe in your podcast app.",podB:"Listen on Spotify →",nCond:"El Condado",nDoc:"Documentary",nRad:"Radio",nPerf:"Profile",nCont:"Contact",
 chyron:"Journalist · TV, radio and print production",h1:"Sport, culture and politics",
 lead:"I'm a journalist covering sport, culture and politics, and I specialise in television, radio and print production. With El Condado, we're accredited media at the NFL, Benidorm Fest and other major events.",
 p2:"I combine rigorous reporting with audiovisual storytelling: I research, write, produce, present and edit, both long-form pieces and short videos for social media.",
@@ -367,11 +410,11 @@ function render(){
   document.querySelectorAll("[data-ialt]").forEach(el=>el.alt=t[el.dataset.ialt]);
   document.querySelectorAll(".lang button").forEach(b=>b.setAttribute("aria-pressed",b.dataset.l===lang));
   $("filters").innerHTML=F.map(([k,l])=>`<button data-f="${k}" aria-pressed="${k===filt}">${t[l]}</button>`).join("");
-  $("videos").innerHTML=V.filter(v=>filt==="all"||v[2]===filt).map(([ti,id,c])=>`<div class="vid"><div class="thumb yt" data-yt="${id}" role="button" tabindex="0" aria-label="${esc(ti)}"><img src="https://i.ytimg.com/vi/${id}/hqdefault.jpg" alt="" loading="lazy"><small>${t[catKey[c]]}</small>${play}</div><a class="t" href="https://www.youtube.com/watch?v=${id}" target="_blank" rel="noopener">${esc(ti)}</a></div>`).join("");
-  $("reels").innerHTML=R.map((id,i)=>`<div class="ig"><iframe src="https://www.instagram.com/reel/${id}/embed" loading="lazy" allowtransparency="true" title="${t.reel} ${i+1}"></iframe></div>`).join("");
+  $("videos").innerHTML=V.filter(v=>filt==="all"||v[2]===filt).map(([ti,id,c])=>`<div class="vid"><div class="thumb yt" data-yt="${id}" role="button" tabindex="0" aria-label="${esc(ti)}"><img src="https://i.ytimg.com/vi/${id}/hqdefault.jpg" alt="" loading="lazy"><small>${t[catKey[c]]}</small>${play}</div><a class="t" href="https://www.youtube.com/watch?v=${id}" target="_blank" rel="noopener">${esc(ti)}</a><span class="pu">${t[catKey[c]]} · youtu.be/${id}</span></div>`).join("");
+  $("reels").innerHTML=R.map((id,i)=>`<div class="ig"><span class="pu">${t.reel} ${i+1} · instagram.com/reel/${id}</span><iframe src="https://www.instagram.com/reel/${id}/embed" loading="lazy" allowtransparency="true" title="${t.reel} ${i+1}"></iframe></div>`).join("");
   $("acts").innerHTML=t.acts.map(([a,b])=>`<div><b>${a}</b><span>${b}</span></div>`).join("");
   $("people").innerHTML=t.people.map(([n,r])=>`<span>${n} <em>· ${r}</em></span>`).join("");
-  {const c=$("cvbtn");if(c)c.href=t.cvF}
+  {const c=$("cvbtn");if(c)c.href=t.cvF;document.querySelectorAll(".pdfbtn").forEach(a=>a.href=t.pdfF)}
   $("eps").innerHTML=EP.map(([n,dt,du,src],i)=>`<div class="trk${cur==="ep"+i?" on":""}" data-a="ep${i}" data-src="${src}"><button aria-label="${esc(n)}">${cur==="ep"+i&&!player.paused?icS:icP}</button><div><div class="nm">${esc(n)}</div><div class="sb">${fmtD(dt)}</div><div class="bar"><i></i></div></div><time>${du}</time></div>`).join("");
   $("early").innerHTML=BL.map(([n,u,ty,y,sa])=>`<li><a href="${u}" target="_blank" rel="noopener">${esc(n)}</a><small>${t[ty]} · ${y}${sa?" · "+t.wSA:""}</small></li>`).join("");
   $("audio").innerHTML=[t.audH,t.audH2].map((g,i)=>`<div><h3>${g[0]}</h3><div class="sub">${g[1]}</div>${A[i].map(([f,d])=>{const [n,sb]=t.aud[f];return `<div class="trk${cur===f?" on":""}" data-a="${f}"><button aria-label="${n}">${cur===f&&!player.paused?icS:icP}</button><div><div class="nm">${n}</div><div class="sb">${sb}</div><div class="bar"><i></i></div></div><time>${d}</time></div>`}).join("")}</div>`).join("");
