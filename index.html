@@ -413,8 +413,11 @@ const EP=[["Una de castells y ajedrez","2026-09-28","44 min","https://anchor.fm/
 const BL=[["Juventudes y leyendas en la batalla de la Super Bowl LIII","https://el-condado.blogspot.com/2019/02/articulo-original-en-sexto-anillo.html","wPrev","2019",1],["Los Steelers, una apisonadora durante el TNF","https://el-condado.blogspot.com/2019/02/los-steelers-una-apisonadora-durante-el.html","wCron","2018",1],["Los 40 años de historia del Instant Replay","https://el-condado.blogspot.com/2018/07/los-40-anos-de-historia-del-instant.html","wRep","2018",0]];
 const fmtD=(s)=>{try{return new Intl.DateTimeFormat(lang==="en"?"en-GB":lang,{day:"numeric",month:"short",year:"numeric"}).format(new Date(s))}catch(e){return s}};
 const R=["DUlQbCUiH54","Dd7Wq18Irg9","DY93-xLNk6s","DYfGW7aRz0q","DYT7wEuuGMo"];
-const F=[["all","fAll"],["vlog","fVlog"],["pod","fPod"],["guia","fGuia"],["rep","fRep"]];
+// Etiquetes dinàmiques: només surten les categories que tenen algun vídeo visible.
+// Per afegir-ne una de nova: posar la clau al vídeo (p. ex. "entrevista") i el text a T (catLabel).
+const CAT_ORDER=["vlog","pod","guia","rep"];
 const catKey={vlog:"fVlog",pod:"fPod",guia:"fGuia",rep:"fRep"};
+const catLabel=(t,c)=>t[catKey[c]]||(t.catLabel&&t.catLabel[c])||c.charAt(0).toUpperCase()+c.slice(1);
 const play='<svg viewBox="0 0 54 54" aria-hidden="true"><circle cx="27" cy="27" r="26" fill="#1fcfa3"/><path d="M22 17l16 10-16 10z" fill="#06261d"/></svg>';
 const esc=s=>s.replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 let lang="ca",filt="all";
@@ -425,8 +428,11 @@ function render(){
   document.querySelectorAll("[data-i]").forEach(el=>{const v=t[el.dataset.i];if(typeof v==="string")el.innerHTML=v});
   document.querySelectorAll("[data-ialt]").forEach(el=>el.alt=t[el.dataset.ialt]);
   document.querySelectorAll(".lang button").forEach(b=>b.setAttribute("aria-pressed",b.dataset.l===lang));
-  $("filters").innerHTML=F.map(([k,l])=>`<button data-f="${k}" aria-pressed="${k===filt}">${t[l]}</button>`).join("");
-  $("videos").innerHTML=V.filter(v=>filt==="all"||v[2]===filt).map(([ti,id,c])=>`<div class="vid"><div class="thumb yt" data-yt="${id}" role="button" tabindex="0" aria-label="${esc(ti)}"><img src="https://i.ytimg.com/vi/${id}/hqdefault.jpg" alt="" loading="lazy"><small>${t[catKey[c]]}</small>${play}</div><a class="t" href="https://www.youtube.com/watch?v=${id}" target="_blank" rel="noopener">${esc(ti)}</a><span class="pu">${t[catKey[c]]} · youtu.be/${id}</span></div>`).join("");
+  {const present=[...new Set(V.map(v=>v[2]))].sort((a,b)=>{const ia=CAT_ORDER.indexOf(a),ib=CAT_ORDER.indexOf(b);return (ia<0?99:ia)-(ib<0?99:ib)});
+   if(filt!=="all"&&!present.includes(filt))filt="all";
+   $("filters").style.display=present.length>1?"":"none";
+   $("filters").innerHTML=[`<button data-f="all" aria-pressed="${filt==="all"}">${t.fAll}</button>`].concat(present.map(k=>`<button data-f="${k}" aria-pressed="${k===filt}">${catLabel(t,k)}</button>`)).join("");}
+  $("videos").innerHTML=V.filter(v=>filt==="all"||v[2]===filt).map(([ti,id,c])=>`<div class="vid"><div class="thumb yt" data-yt="${id}" role="button" tabindex="0" aria-label="${esc(ti)}"><img src="https://i.ytimg.com/vi/${id}/hqdefault.jpg" alt="" loading="lazy"><small>${catLabel(t,c)}</small>${play}</div><a class="t" href="https://www.youtube.com/watch?v=${id}" target="_blank" rel="noopener">${esc(ti)}</a><span class="pu">${catLabel(t,c)} · youtu.be/${id}</span></div>`).join("");
   $("reels").innerHTML=R.map((id,i)=>`<div class="ig"><span class="pu">${t.reel} ${i+1} · instagram.com/reel/${id}</span><iframe src="https://www.instagram.com/reel/${id}/embed" loading="lazy" allowtransparency="true" title="${t.reel} ${i+1}"></iframe></div>`).join("");
   $("acts").innerHTML=t.acts.map(([a,b])=>`<div><b>${a}</b><span>${b}</span></div>`).join("");
   $("people").innerHTML=t.people.map(([n,r])=>`<span>${n} <em>· ${r}</em></span>`).join("");
