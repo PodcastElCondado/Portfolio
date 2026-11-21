@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Marc Alonso i Bueno</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* VOICE: confident broadcast journalist, direct and warm
+   IDEA: a TV broadcast — the portrait wears an on-air lower third, sections cut like a rundown
+   PICTURE: large portrait with chyron; dark studio band for El Condado; poster-lit band for the documentary
+   COLOUR and TYPE: warm paper + ink, El Condado teal accent; Dragons green/gold in its band; Barlow Condensed + Barlow
+   LAYOUT: portrait left, intro right; full-width bands; cards in fluid grids, stacked on phones */
+:root{color-scheme:light dark;--bg:light-dark(#f3f2ef,#111312);--ink:light-dark(#141615,#eceeed);--mut:light-dark(#5b605e,#a3aaa7);--line:light-dark(#d9d8d3,#2a2e2c);--card:light-dark(#fff,#1a1d1c);--teal:#1fcfa3;--tealD:light-dark(#0b8f6f,#3fe0b8);--studio:#141615;--green:#1d6b35;--gold:#f2c230}
+:root[data-theme=light]{color-scheme:light}:root[data-theme=dark]{color-scheme:dark}
+*{box-sizing:border-box;min-width:0}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{margin:0;background:var(--bg);color:var(--ink);font:16.5px/1.6 Barlow,system-ui,sans-serif;overflow-x:clip}
+h1,h2,h3{font-family:"Barlow Condensed",Barlow,sans-serif;font-weight:700;line-height:1.05;margin:0;text-wrap:balance}
+h2{font-size:clamp(34px,5vw,52px)}h3{font-size:24px}
+p{margin:0 0 1em;max-width:66ch}
+a{color:inherit}
+.wrap{max-width:1240px;margin:0 auto}
+.band{padding:clamp(40px,6vw,88px) max(5vw,16px)}
+/* nav */
+nav{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 90%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;gap:20px;padding:10px max(5vw,16px);flex-wrap:wrap}
+.brand{font:700 22px "Barlow Condensed",sans-serif;text-decoration:none;margin-right:auto}
+.brand span{color:var(--tealD)}
+.links{display:flex;gap:18px;flex-wrap:wrap}
+.links a{text-decoration:none;font-weight:500;color:var(--mut);padding:6px 0}
+.links a:hover{color:var(--ink)}
+.lang{display:flex;border:1px solid var(--line);border-radius:999px;overflow:hidden}
+.lang button{all:unset;cursor:pointer;font:600 14px Barlow,sans-serif;padding:8px 13px;min-width:24px;text-align:center}
+.lang button[aria-pressed=true]{background:var(--ink);color:var(--bg)}
+button:focus-visible,a:focus-visible{outline:3px solid var(--teal);outline-offset:2px}
+@media(max-width:760px){.links{display:none}}
+/* hero */
+.hero .wrap{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:clamp(28px,5vw,72px);align-items:center}
+.portrait{position:relative;border-radius:6px;overflow:hidden;aspect-ratio:4/5;background:#ddd}
+.portrait img{width:100%;height:100%;object-fit:cover;object-position:50% 30%;display:block}
+.chyron{position:absolute;left:0;right:12%;bottom:8%;animation:in .8s .3s both cubic-bezier(.2,.8,.2,1)}
+.chyron b{display:block;background:var(--teal);color:#06261d;font:700 clamp(22px,3vw,30px)/1 "Barlow Condensed",sans-serif;padding:12px 18px 10px}
+.chyron i{display:block;font-style:normal;background:#141615;color:#fff;font-weight:500;font-size:15px;padding:8px 18px;width:fit-content;max-width:100%}
+@keyframes in{from{transform:translateX(-100%)}to{transform:none}}
+@media(prefers-reduced-motion:reduce){.chyron{animation:none}html{scroll-behavior:auto}}
+.hero h1{font-size:clamp(40px,6vw,64px);margin-bottom:18px}
+.lead{font-size:clamp(18px,2vw,21px);color:var(--ink)}
+.hero p:not(.lead){color:var(--mut)}
+.btns{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px}
+.btn{display:inline-flex;align-items:center;min-height:46px;padding:0 22px;border-radius:999px;font-weight:600;text-decoration:none;border:2px solid var(--ink)}
+.btn.fill{background:var(--ink);color:var(--bg)}
+.quick{display:flex;flex-wrap:wrap;gap:8px 22px;margin-top:28px;padding-top:20px;border-top:1px solid var(--line);color:var(--mut);font-size:15px}
+.quick strong{color:var(--ink);font-weight:600}
+@media(max-width:760px){.hero .wrap{grid-template-columns:1fr}.portrait{max-width:440px;aspect-ratio:1/1.05}}
+/* condado */
+.studio{background:var(--studio);color:#eceeed}
+.studio .head{display:grid;grid-template-columns:auto minmax(0,1fr);gap:clamp(20px,4vw,48px);align-items:center;margin-bottom:40px}
+.studio .head img{width:clamp(120px,16vw,190px);border-radius:6px;display:block}
+.studio p{color:#b9c0bd}
+.role{display:inline-block;color:var(--teal);font-weight:600;margin-bottom:10px}
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 22px}
+.filters button{all:unset;cursor:pointer;min-height:40px;display:inline-flex;align-items:center;padding:0 16px;border-radius:999px;border:1px solid #3a403d;color:#cfd5d2;font-weight:500;font-size:15px}
+.filters button[aria-pressed=true]{background:var(--teal);border-color:var(--teal);color:#06261d}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,260px),1fr));gap:18px}
+.vid{display:flex;flex-direction:column;text-decoration:none;background:#1c1f1e;border-radius:6px;overflow:hidden;transition:transform .2s}
+.vid:hover{transform:translateY(-3px)}
+.thumb{aspect-ratio:16/9;display:grid;place-items:center;position:relative;background:radial-gradient(120% 90% at 30% 20%,#25403a,#151817 70%)}
+.thumb svg{width:54px;height:54px}
+.thumb small{position:absolute;left:12px;top:10px;font-size:13px;font-weight:600;color:var(--teal)}
+.vid .t{padding:14px 16px 4px;font-weight:600;color:#fff;line-height:1.35}
+.vid .go{padding:0 16px 14px;font-size:14px;color:#8f9894;margin-top:auto}
+.reels{margin-top:52px}
+.reels .grid{grid-template-columns:repeat(auto-fill,minmax(min(100%,190px),1fr))}
+.reel .thumb{aspect-ratio:9/12;background:radial-gradient(110% 80% at 70% 15%,#2c4d45,#151817 70%)}
+/* documentary */
+.doc{background:#0b0c0c;color:#e9ece9;position:relative;overflow:hidden}
+.doc::before{content:"";position:absolute;inset:0;background:radial-gradient(60% 50% at 80% 10%,rgba(29,107,53,.45),transparent 70%);pointer-events:none}
+.doc .wrap{position:relative;display:grid;grid-template-columns:minmax(0,4fr) minmax(0,7fr);gap:clamp(28px,5vw,72px);align-items:start}
+.doc img{width:100%;border-radius:4px;display:block;box-shadow:0 30px 60px rgba(0,0,0,.6)}
+.status{display:inline-flex;align-items:center;gap:8px;background:var(--gold);color:#1b1503;font-weight:600;font-size:14px;padding:6px 14px;border-radius:999px;margin-bottom:16px}
+.status::before{content:"";width:8px;height:8px;border-radius:50%;background:#1b1503;animation:pulse 1.6s infinite}
+@keyframes pulse{50%{opacity:.25}}
+@media(prefers-reduced-motion:reduce){.status::before{animation:none}}
+.doc h2{color:var(--gold)}
+.by{color:#9aa39e;margin:8px 0 22px}
+.doc p{color:#c7cdc9}
+.acts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin:28px 0}
+.acts div{border-top:2px solid var(--green);padding-top:12px}
+.acts b{display:block;color:var(--gold);font-family:"Barlow Condensed";font-size:20px;margin-bottom:4px}
+.acts span{font-size:15px;color:#b4bbb6}
+.people{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+.people span{border:1px solid #2f3a33;border-radius:999px;padding:6px 14px;font-size:14px;color:#d8ddd9}
+.people em{font-style:normal;color:#8d978f}
+@media(max-width:760px){.doc .wrap{grid-template-columns:1fr}.doc img{max-width:340px}.acts{grid-template-columns:1fr}}
+/* radio + profile */
+.sec-head{display:flex;align-items:end;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-bottom:28px}
+.sec-head p{color:var(--mut);margin:0}
+.rows{border-top:2px solid var(--ink)}
+.row{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr) auto;gap:20px;padding:22px 0;border-bottom:1px solid var(--line);align-items:baseline}
+.row h3{font-size:26px}
+.row p{margin:0;color:var(--mut)}
+.row time{font-weight:600;white-space:nowrap;color:var(--tealD)}
+.note{margin-top:18px;color:var(--mut);font-size:15px}
+.aud{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:28px;margin-top:40px}
+.aud h3{font-size:22px;margin-bottom:4px}
+.aud .sub{color:var(--mut);font-size:15px;margin-bottom:12px}
+.trk{display:grid;grid-template-columns:44px minmax(0,1fr) auto;gap:14px;align-items:center;padding:12px 14px;background:var(--card);border:1px solid var(--line);border-radius:8px;margin-bottom:10px}
+.trk button{all:unset;cursor:pointer;width:44px;height:44px;border-radius:50%;background:var(--ink);color:var(--bg);display:grid;place-items:center}
+.trk button svg{width:16px;height:16px;fill:currentColor}
+.trk.on button{background:var(--teal);color:#06261d}
+.trk .nm{font-weight:600;line-height:1.3}
+.bar{height:6px;background:var(--line);border-radius:3px;margin-top:8px;cursor:pointer;position:relative}
+.bar i{position:absolute;inset:0 auto 0 0;width:0;background:var(--tealD);border-radius:3px}
+.trk time{font-size:14px;color:var(--mut);white-space:nowrap;font-variant-numeric:tabular-nums}
+@media(max-width:700px){.row{grid-template-columns:1fr;gap:6px}}
+.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:18px}
+.box{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:24px}
+.box h3{font-size:22px;margin-bottom:14px}
+.box ul{list-style:none;margin:0;padding:0}
+.box li{padding:7px 0;border-bottom:1px solid var(--line)}
+.box li:last-child{border:0}
+.box li small{display:block;color:var(--mut);font-size:14px}
+.tags{display:flex;flex-wrap:wrap;gap:8px}
+.tags span{background:var(--bg);border:1px solid var(--line);border-radius:999px;padding:5px 12px;font-size:14.5px}
+/* contact */
+.contact{background:var(--teal);color:#06261d}
+.contact .wrap{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:32px;align-items:center}
+.contact h2{font-size:clamp(40px,6vw,64px)}
+.contact p{margin:10px 0 0;font-size:18px}
+.mail{font:700 clamp(20px,2.6vw,28px) "Barlow Condensed",sans-serif;overflow-wrap:anywhere}
+.soc{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+.soc a{display:inline-flex;align-items:center;min-height:44px;padding:0 18px;border-radius:999px;background:#06261d;color:#fff;text-decoration:none;font-weight:600}
+@media(max-width:760px){.contact .wrap{grid-template-columns:1fr}}
+footer{padding:22px max(5vw,16px);font-size:14px;color:var(--mut);text-align:center}
+.yt{cursor:pointer;background:#000}.yt img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.85;transition:opacity .2s}.yt:hover img{opacity:1}.yt svg,.yt small{position:relative;z-index:1}.yt small{position:absolute;background:#141615;padding:2px 8px;border-radius:4px}
+.yt iframe,.ig iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.vid a.t{text-decoration:none}.vid a.t:hover{text-decoration:underline}
+.ig{position:relative;height:620px;background:#fff;border-radius:6px;overflow:hidden}
+.reels .grid{grid-template-columns:repeat(auto-fill,minmax(min(100%,300px),1fr))}
+</style>
+</head>
+<body>
+<nav><div class="wrap">
+  <a class="brand" href="#inici">Marc Alonso <span>i Bueno</span></a>
+  <div class="links">
+    <a href="#el-condado" data-i="nCond">El Condado</a><a href="#documental" data-i="nDoc">Documental</a><a href="#radio" data-i="nRad">Ràdio</a><a href="#perfil" data-i="nPerf">Perfil</a><a href="#contacte" data-i="nCont">Contacte</a>
+  </div>
+  <div class="lang" role="group" aria-label="Idioma"><button data-l="ca">CA</button><button data-l="es">ES</button><button data-l="en">EN</button></div>
+</div></nav>
+
+<header class="band hero" id="inici"><div class="wrap">
+  <div class="portrait">
+    <img src="marc.jpg" alt="Marc Alonso i Bueno">
+    <div class="chyron"><b>Marc Alonso i Bueno</b><i data-i="chyron">Periodista · Producció de TV, ràdio i premsa</i></div>
+  </div>
+  <div>
+    <h1 data-i="h1">Explico l'esport i la cultura des de dins</h1>
+    <p class="lead" data-i="lead"></p>
+    <p data-i="p2"></p>
+    <div class="btns"><a class="btn fill" href="#el-condado" data-i="cta1">Veure treballs</a><a class="btn" href="#contacte" data-i="cta2">Contacte</a></div>
+    <div class="quick" data-i="quick"></div>
+  </div>
+</div></header>
+
+<section class="band studio" id="el-condado"><div class="wrap">
+  <div class="head">
+    <img src="condado.jpg" alt="El Condado">
+    <div><span class="role" data-i="cRole"></span><h2>El Condado</h2><p style="margin-top:14px" data-i="cDesc"></p></div>
+  </div>
+  <h3 style="margin-bottom:16px" data-i="vHead">Vídeos a YouTube</h3>
+  <div class="filters" id="filters"></div>
+  <div class="grid" id="videos"></div>
+  <div class="reels">
+    <h3 data-i="rHead">Reels originals</h3>
+    <p style="margin:8px 0 18px" data-i="rNote"></p>
+    <div class="grid" id="reels"></div>
+  </div>
+</div></section>
+
+<section class="band doc" id="documental"><div class="wrap">
+  <img src="dragons.jpg" alt="L'últim alè dels Dragons" data-ialt="posterAlt">
+  <div>
+    <span class="status" data-i="dStatus">En desenvolupament</span>
+    <h2>L'últim alè dels Dragons</h2>
+    <p class="by" data-i="dBy"></p>
+    <p data-i="dLog"></p>
+    <p data-i="dSyn"></p>
+    <div class="acts" id="acts"></div>
+    <h3 style="font-size:20px" data-i="dPeople">Testimonis</h3>
+    <div class="people" id="people"></div>
+  </div>
+</div></section>
+
+<section class="band" id="radio"><div class="wrap">
+  <div class="sec-head"><h2 data-i="radH">Ràdio</h2><p data-i="radSub"></p></div>
+  <div class="rows" id="radioRows"></div>
+  <div class="aud" id="audio"></div>
+</div></section>
+
+<section class="band" id="perfil" style="padding-top:0"><div class="wrap">
+  <div class="sec-head"><h2 data-i="pH">Perfil</h2></div>
+  <div class="cols" id="profile"></div>
+</div></section>
+
+<section class="band contact" id="contacte"><div class="wrap">
+  <div><h2 data-i="ctH">Parlem?</h2><p data-i="ctP"></p></div>
+  <div>
+    <a class="mail" href="mailto:podcastelcondado@gmail.com">podcastelcondado@gmail.com</a>
+    <div class="soc">
+      <a href="https://www.linkedin.com/in/marc-alonso-bueno-267721a7/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://www.instagram.com/marcalob97" target="_blank" rel="noopener">Instagram</a>
+    </div>
+  </div>
+</div></section>
+<footer>© 2026 Marc Alonso i Bueno · Sant Andreu de la Barca</footer>
+
+<script>
+{
+const T={
+ca:{nCond:"El Condado",nDoc:"Documental",nRad:"Ràdio",nPerf:"Perfil",nCont:"Contacte",
+chyron:"Periodista · Producció de TV, ràdio i premsa",h1:"Explico l'esport i la cultura des de dins",
+lead:"Periodista especialitzat en producció de televisió, ràdio i premsa. De la tribuna de premsa de la NFL a Wembley als Jocs Olímpics de Milano Cortina, passant per una plaça castellera.",
+p2:"Combino rigor informatiu i narrativa audiovisual: investigo, escric, produeixo, presento i edito, tant en format llarg com en vídeo curt per a xarxes.",
+cta1:"Veure treballs",cta2:"Contacte",
+quick:"<span><strong>Periodisme</strong> · UAB</span><span><strong>Producció TV, ràdio i premsa</strong> · UAB</span><span><strong>Català · Castellà · Anglès</strong></span>",
+cRole:"Mitjà digital i podcast propi",cDesc:"Esport, cultura i entreteniment amb mirada pròpia: previes i guies d'esdeveniments, anàlisi, vlogs des de dins i el podcast HailMary. Present a YouTube, TikTok, Instagram i X.",
+vHead:"Vídeos a YouTube",rHead:"Reels originals",rNote:"Contingut creat específicament per a Instagram, no retalls dels vídeos.",
+fAll:"Tots",fVlog:"Vlogs",fPod:"Podcast",fGuia:"Guies i previes",fRep:"Reportatge i anàlisi",
+yt:"Veure a YouTube →",ig:"Veure a Instagram →",reel:"Reel",
+dStatus:"En desenvolupament · Cerca de productora i pressupost",dBy:"Un documental de Marc Alonso · Idea, direcció i producció",posterAlt:"Cartell provisional de L'últim alè dels Dragons",
+dLog:"La història dels Barcelona Dragons, un dels equips històrics del futbol americà a Europa: dels inicis i el títol de la World Bowl del 1997 a la desaparició del 2003, el retorn el 2020 i una última temporada caòtica que va acabar amb l'equip fora de l'ELF.",
+dSyn:"Un relat sobre la fragilitat de l'èxit i la realitat de l'esport minoritari a Catalunya, explicat per qui va viure el col·lapse a peu de camp. Vaig seguir la darrera etapa de l'equip des de dins, com a part del seu equip de comunicació.",
+acts:[["Primer acte","L'arribada de l'esport a Catalunya i l'època daurada dels anys 90."],["Segon acte","La desaparició del 2003 i la cara oculta de l'esport minoritari."],["Tercer acte","El retorn amb nova propietat i la temporada fallida del 2024."]],
+dPeople:"Testimonis",people:[["Jordi Brugnani","jugador"],["Christian Llitjós","periodista"],["Guillem Álvarez","front office"],["Carlota Vallecoccia","cap d'operacions"],["Jesús Angoy","llegat NFL Europe"]],
+radH:"Ràdio",radSub:"Producció i redacció en emissores públiques",
+radio:[["Catalunya Ràdio","Productor d'informatius: butlletins del matí i Catalunya Migdia.","Juny – jul. 2026"],["Ràdio 4 · RNE","Pràctiques periodístiques de redacció, locució i producció.","Febr. – maig 2025"]],
+butN:"Butlletí informatiu",audH:["Peces emeses","Ràdio 4"],audH2:["Proves d'estudi","Pràctiques a Ràdio 4, enregistrades en estudi"],
+pH:"Perfil",
+prof:[["Formació",[["Diploma d'Especialització en Producció de TV, Ràdio i Premsa","Universitat Autònoma de Barcelona · 2026"],["Grau en Periodisme","Universitat Autònoma de Barcelona · 2025"]]],
+["Especialitats","tags:Periodisme esportiu|Periodisme cultural|Producció de TV|Producció de ràdio|Narrativa digital|Format curt i llarg|Edició de vídeo|Motion graphics|Podcast"],
+["Eines","tags:DaVinci Resolve|Fusion|OBS Studio|CapCut|Canva|Riverside.fm"],
+["Idiomes",[["Català i castellà","Nadiu"],["Anglès","B2 certificat"]]]],
+ctH:"Parlem?",ctP:"Per a col·laboracions, produccions o propostes de feina."},
+es:{nCond:"El Condado",nDoc:"Documental",nRad:"Radio",nPerf:"Perfil",nCont:"Contacto",
+chyron:"Periodista · Producción de TV, radio y prensa",h1:"Cuento el deporte y la cultura desde dentro",
+lead:"Periodista especializado en producción de televisión, radio y prensa. De la tribuna de prensa de la NFL en Wembley a los Juegos Olímpicos de Milano Cortina, pasando por una plaza castellera.",
+p2:"Combino rigor informativo y narrativa audiovisual: investigo, escribo, produzco, presento y edito, tanto en formato largo como en vídeo corto para redes.",
+cta1:"Ver trabajos",cta2:"Contacto",
+quick:"<span><strong>Periodismo</strong> · UAB</span><span><strong>Producción TV, radio y prensa</strong> · UAB</span><span><strong>Catalán · Castellano · Inglés</strong></span>",
+cRole:"Medio digital y podcast propio",cDesc:"Deporte, cultura y entretenimiento con mirada propia: previas y guías de eventos, análisis, vlogs desde dentro y el podcast HailMary. Presente en YouTube, TikTok, Instagram y X.",
+vHead:"Vídeos en YouTube",rHead:"Reels originales",rNote:"Contenido creado específicamente para Instagram, no recortes de los vídeos.",
+fAll:"Todos",fVlog:"Vlogs",fPod:"Podcast",fGuia:"Guías y previas",fRep:"Reportaje y análisis",
+yt:"Ver en YouTube →",ig:"Ver en Instagram →",reel:"Reel",
+dStatus:"En desarrollo · Búsqueda de productora y presupuesto",dBy:"Un documental de Marc Alonso · Idea, dirección y producción",posterAlt:"Cartel provisional de L'últim alè dels Dragons",
+dLog:"La historia de los Barcelona Dragons, uno de los equipos históricos del fútbol americano en Europa: de sus inicios y el título de la World Bowl de 1997 a su desaparición en 2003, el regreso en 2020 y una última temporada caótica que terminó con el equipo fuera de la ELF.",
+dSyn:"Un relato sobre la fragilidad del éxito y la realidad del deporte minoritario en Cataluña, contado por quienes vivieron el colapso a pie de campo. Seguí la última etapa del equipo desde dentro, como parte de su equipo de comunicación.",
+acts:[["Primer acto","La llegada del deporte a Cataluña y la época dorada de los 90."],["Segundo acto","La desaparición de 2003 y la cara oculta del deporte minoritario."],["Tercer acto","El regreso con nueva propiedad y la temporada fallida de 2024."]],
+dPeople:"Testimonios",people:[["Jordi Brugnani","jugador"],["Christian Llitjós","periodista"],["Guillem Álvarez","front office"],["Carlota Vallecoccia","jefa de operaciones"],["Jesús Angoy","legado NFL Europe"]],
+radH:"Radio",radSub:"Producción y redacción en emisoras públicas",
+radio:[["Catalunya Ràdio","Productor de informativos: boletines de la mañana y Catalunya Migdia.","Jun. – jul. 2026"],["Ràdio 4 · RNE","Prácticas periodísticas de redacción, locución y producción.","Feb. – may. 2025"]],
+butN:"Boletín informativo",audH:["Piezas emitidas","Ràdio 4"],audH2:["Pruebas de estudio","Prácticas en Ràdio 4, grabadas en estudio"],
+pH:"Perfil",
+prof:[["Formación",[["Diploma de Especialización en Producción de TV, Radio y Prensa","Universitat Autònoma de Barcelona · 2026"],["Grado en Periodismo","Universitat Autònoma de Barcelona · 2025"]]],
+["Especialidades","tags:Periodismo deportivo|Periodismo cultural|Producción de TV|Producción de radio|Narrativa digital|Formato corto y largo|Edición de vídeo|Motion graphics|Podcast"],
+["Herramientas","tags:DaVinci Resolve|Fusion|OBS Studio|CapCut|Canva|Riverside.fm"],
+["Idiomas",[["Catalán y castellano","Nativo"],["Inglés","B2 certificado"]]]],
+ctH:"¿Hablamos?",ctP:"Para colaboraciones, producciones o propuestas de trabajo."},
+en:{nCond:"El Condado",nDoc:"Documentary",nRad:"Radio",nPerf:"Profile",nCont:"Contact",
+chyron:"Journalist · TV, radio and print production",h1:"I tell sport and culture stories from the inside",
+lead:"Journalist specialising in television, radio and print production. From the NFL press box at Wembley to the Milano Cortina Olympic Games, by way of a castells square.",
+p2:"I blend rigorous reporting with audiovisual storytelling: I research, write, produce, present and edit, in long form and in short social video.",
+cta1:"See my work",cta2:"Contact",
+quick:"<span><strong>Journalism</strong> · UAB</span><span><strong>TV, radio and print production</strong> · UAB</span><span><strong>Catalan · Spanish · English</strong></span>",
+cRole:"My own digital outlet and podcast",cDesc:"Sport, culture and entertainment with a point of view: event previews and guides, analysis, behind-the-scenes vlogs and the HailMary podcast. On YouTube, TikTok, Instagram and X.",
+vHead:"YouTube videos",rHead:"Original reels",rNote:"Made specifically for Instagram, not clips cut from the videos.",
+fAll:"All",fVlog:"Vlogs",fPod:"Podcast",fGuia:"Guides and previews",fRep:"Features and analysis",
+yt:"Watch on YouTube →",ig:"Watch on Instagram →",reel:"Reel",
+dStatus:"In development · Seeking a production company and budgeting",dBy:"A documentary by Marc Alonso · Concept, direction and production",posterAlt:"Provisional poster for L'últim alè dels Dragons",
+dLog:"The story of the Barcelona Dragons, one of the historic American football teams in Europe: from their beginnings and the 1997 World Bowl title to their disappearance in 2003, the 2020 comeback and a chaotic final season that ended with the team out of the ELF.",
+dSyn:"A story about the fragility of success and the reality of minority sport in Catalonia, told by those who lived the collapse on the sidelines. I followed the team's final chapter from the inside, as part of its communications staff.",
+acts:[["Act one","American football arrives in Catalonia and the golden era of the 90s."],["Act two","The 2003 disappearance and the hidden side of minority sport."],["Act three","The return under new ownership and the failed 2024 season."]],
+dPeople:"Interviewees",people:[["Jordi Brugnani","player"],["Christian Llitjós","journalist"],["Guillem Álvarez","front office"],["Carlota Vallecoccia","head of operations"],["Jesús Angoy","NFL Europe legend"]],
+radH:"Radio",radSub:"Production and newsroom work at public broadcasters",
+radio:[["Catalunya Ràdio","News producer: morning bulletins and Catalunya Migdia.","Jun – Jul 2026"],["Ràdio 4 · RNE","Journalism internship in reporting, presenting and production.","Feb – May 2025"]],
+butN:"News bulletin",audH:["Broadcast pieces","Ràdio 4"],audH2:["Studio tests","Ràdio 4 internship, recorded in studio"],
+pH:"Profile",
+prof:[["Education",[["Specialisation Diploma in TV, Radio and Print Production","Autonomous University of Barcelona · 2026"],["BA in Journalism","Autonomous University of Barcelona · 2025"]]],
+["Specialities","tags:Sports journalism|Cultural journalism|TV production|Radio production|Digital storytelling|Short and long form|Video editing|Motion graphics|Podcasting"],
+["Tools","tags:DaVinci Resolve|Fusion|OBS Studio|CapCut|Canva|Riverside.fm"],
+["Languages",[["Catalan and Spanish","Native"],["English","B2 certified"]]]],
+ctH:"Let's talk",ctP:"For collaborations, productions or job opportunities."}
+};
+const V=[
+["VLOG | Un día como PRENSA para la NFL en WEMBLEY","KfzMVrCtQD0","vlog"],
+["El CONCURS de CASTELLS des de dins","S_ovtrlQi_M","vlog"],
+["Una de castells y ajedrez | HailMary des del Condado","0YxpuasvRfI","pod"],
+["¿Estamos dentro de una burbuja? | HailMary des del Condado 2","UTe4MB22fBY","pod"],
+["Un Hail Mary renovado: Nueva temporada de la NFL","uZ5jZYRMCbI","pod"],
+["VLOG | Los JJOO desde dentro. ¡Un SUEÑO!","O9ffy8s-io8","vlog"],
+["¿El mejor BENIDORM FEST de la HISTORIA? - El camino a seguir","NteQyO1j6Fg","rep"],
+["¡EMPIEZAN LOS JUEGOS! Guía para no perderse nada de Milán-Cortina 2026","EL0Ua2i2Fjg","guia"],
+["La previa de la SuperBowl, desde San Francisco","XhmHRQ0hTm4","guia"],
+["Mundial de Natación Singapur 2025: La Guía COMPLETA","rVIpPBzWbrI","guia"]];
+const A=[[["Glòries","glories","1:15"],["Suïcidi","suicidi","1:45"],["E-Call","ecall","2:16"]],[["Eleccions a Alemanya","alemanya","1:48"],["San Remo","sanremo","1:34"],["Tibidabo","tibidabo","1:26"],["Alzheimer","alzheimer","1:28"],["","but","5:23"]]];
+const icP='<svg viewBox="0 0 16 16"><path d="M4 2l10 6-10 6z"/></svg>',icS='<svg viewBox="0 0 16 16"><path d="M3 2h4v12H3zM9 2h4v12H9z"/></svg>';
+const player=new Audio();let cur=null;
+const R=["Dd7Wq18Irg9","DY93-xLNk6s","DYfGW7aRz0q","DYT7wEuuGMo"];
+const F=[["all","fAll"],["vlog","fVlog"],["pod","fPod"],["guia","fGuia"],["rep","fRep"]];
+const catKey={vlog:"fVlog",pod:"fPod",guia:"fGuia",rep:"fRep"};
+const play='<svg viewBox="0 0 54 54" aria-hidden="true"><circle cx="27" cy="27" r="26" fill="#1fcfa3"/><path d="M22 17l16 10-16 10z" fill="#06261d"/></svg>';
+const esc=s=>s.replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+let lang="ca",filt="all";
+try{const s=localStorage.getItem("ma-lang");if(T[s])lang=s}catch(e){}
+const $=id=>document.getElementById(id);
+function render(){
+  const t=T[lang];document.documentElement.lang=lang;
+  document.querySelectorAll("[data-i]").forEach(el=>{const v=t[el.dataset.i];if(typeof v==="string")el.innerHTML=v});
+  document.querySelectorAll("[data-ialt]").forEach(el=>el.alt=t[el.dataset.ialt]);
+  document.querySelectorAll(".lang button").forEach(b=>b.setAttribute("aria-pressed",b.dataset.l===lang));
+  $("filters").innerHTML=F.map(([k,l])=>`<button data-f="${k}" aria-pressed="${k===filt}">${t[l]}</button>`).join("");
+  $("videos").innerHTML=V.filter(v=>filt==="all"||v[2]===filt).map(([ti,id,c])=>`<div class="vid"><div class="thumb yt" data-yt="${id}" role="button" tabindex="0" aria-label="${esc(ti)}"><img src="https://i.ytimg.com/vi/${id}/hqdefault.jpg" alt="" loading="lazy"><small>${t[catKey[c]]}</small>${play}</div><a class="t" href="https://www.youtube.com/watch?v=${id}" target="_blank" rel="noopener">${esc(ti)}</a></div>`).join("");
+  $("reels").innerHTML=R.map((id,i)=>`<div class="ig"><iframe src="https://www.instagram.com/reel/${id}/embed" loading="lazy" allowtransparency="true" title="${t.reel} ${i+1}"></iframe></div>`).join("");
+  $("acts").innerHTML=t.acts.map(([a,b])=>`<div><b>${a}</b><span>${b}</span></div>`).join("");
+  $("people").innerHTML=t.people.map(([n,r])=>`<span>${n} <em>· ${r}</em></span>`).join("");
+  $("audio").innerHTML=[t.audH,t.audH2].map((g,i)=>`<div><h3>${g[0]}</h3><div class="sub">${g[1]}</div>${A[i].map(([n,f,d])=>(n=n||t.butN,`<div class="trk${cur===f?" on":""}" data-a="${f}"><button aria-label="${n}">${cur===f&&!player.paused?icS:icP}</button><div><div class="nm">${n}</div><div class="bar"><i></i></div></div><time>${d}</time></div>`)).join("")}</div>`).join("");
+  $("radioRows").innerHTML=t.radio.map(([a,b,c])=>`<div class="row"><h3>${a}</h3><p>${b}</p><time>${c}</time></div>`).join("");
+  $("profile").innerHTML=t.prof.map(([h,c])=>`<div class="box"><h3>${h}</h3>${typeof c==="string"?`<div class="tags">${c.slice(5).split("|").map(x=>`<span>${x}</span>`).join("")}</div>`:`<ul>${c.map(([a,b])=>`<li>${a}<small>${b}</small></li>`).join("")}</ul>`}</div>`).join("");
+}
+$("audio").addEventListener("click",e=>{const tr=e.target.closest(".trk");if(!tr)return;const f=tr.dataset.a;
+  const bar=e.target.closest(".bar");
+  if(bar&&cur===f&&player.duration){const r=bar.getBoundingClientRect();player.currentTime=(e.clientX-r.left)/r.width*player.duration;return}
+  if(cur!==f){cur=f;player.src="audio/"+f+".mp3";player.play().catch(()=>{})}else if(player.paused)player.play().catch(()=>{});else player.pause()});
+const sync=()=>{document.querySelectorAll(".trk").forEach(tr=>{const on=tr.dataset.a===cur;tr.classList.toggle("on",on);tr.querySelector("button").innerHTML=on&&!player.paused?icS:icP;tr.querySelector(".bar i").style.width=on&&player.duration?(player.currentTime/player.duration*100)+"%":"0"})};
+["play","pause","timeupdate","ended"].forEach(ev=>player.addEventListener(ev,sync));
+document.querySelector(".lang").addEventListener("click",e=>{const b=e.target.closest("button");if(!b)return;lang=b.dataset.l;try{localStorage.setItem("ma-lang",lang)}catch(x){}render()});
+$("filters").addEventListener("click",e=>{const b=e.target.closest("button");if(!b)return;filt=b.dataset.f;render()});
+const playYT=el=>{if(el.querySelector("iframe"))return;el.innerHTML=`<iframe src="https://www.youtube-nocookie.com/embed/${el.dataset.yt}?autoplay=1&rel=0" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen title="YouTube"></iframe>`};
+$("videos").addEventListener("click",e=>{const y=e.target.closest(".yt");if(y)playYT(y)});
+$("videos").addEventListener("keydown",e=>{const y=e.target.closest(".yt");if(y&&(e.key==="Enter"||e.key===" ")){e.preventDefault();playYT(y)}});
+render();
+}
+</script>
+</body>
+</html>
