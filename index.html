@@ -3,6 +3,13 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Marc Alonso i Bueno, periodista especialitzat en producció de TV, ràdio i premsa. Esport, cultura i política.">
+<meta property="og:title" content="Marc Alonso i Bueno · Periodista">
+<meta property="og:description" content="Esport, cultura i política. Producció de TV, ràdio i premsa.">
+<meta property="og:image" content="https://podcastelcondado.github.io/Portfolio/og.jpg">
+<meta property="og:url" content="https://podcastelcondado.github.io/Portfolio/">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
 <title>Marc Alonso i Bueno</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
@@ -146,6 +153,10 @@ footer{padding:22px max(5vw,16px);font-size:14px;color:var(--mut);text-align:cen
 .ig{position:relative;height:620px;background:#fff;border-radius:6px;overflow:hidden}
 .reels .grid{grid-template-columns:repeat(auto-fill,minmax(min(100%,300px),1fr))}
 .pv{font-family:system-ui,-apple-system,"Segoe UI",Arial,sans-serif}
+@media(min-width:761px){.doc img{position:sticky;top:90px}}
+.teaser{margin:22px 0 4px}.tz{border-radius:6px;overflow:hidden;max-width:620px}
+.tzlink{display:inline-flex;align-items:center;min-height:46px;padding:0 22px;border-radius:999px;background:var(--gold);color:#1b1503;font-weight:700;text-decoration:none}
+.cvb{background:#fff!important;color:#06261d!important}
 </style>
 </head>
 <body>
@@ -194,6 +205,7 @@ footer{padding:22px max(5vw,16px);font-size:14px;color:var(--mut);text-align:cen
     <p class="by" data-i="dBy"></p>
     <p data-i="dLog"></p>
     <p data-i="dSyn"></p>
+    <div class="teaser"><h3 style="font-size:20px;margin:6px 0 10px" data-i="tzH">Teaser del documental</h3><div class="thumb yt tz" data-yt="Bhmk9Lj7eF0" role="button" tabindex="0" aria-label="Teaser"><img src="https://i.ytimg.com/vi/Bhmk9Lj7eF0/hqdefault.jpg" alt="" loading="lazy"><small>Teaser</small><svg viewBox="0 0 54 54" aria-hidden="true"><circle cx="27" cy="27" r="26" fill="#f2c230"/><path d="M22 17l16 10-16 10z" fill="#1b1503"/></svg></div></div>
     <div class="acts" id="acts"></div>
     <h3 style="font-size:20px" data-i="dPeople">Testimonis</h3>
     <div class="people" id="people"></div>
@@ -222,6 +234,7 @@ footer{padding:22px max(5vw,16px);font-size:14px;color:var(--mut);text-align:cen
   <div>
     <a class="mail" href="mailto:podcastelcondado@gmail.com">podcastelcondado@gmail.com</a>
     <div class="soc">
+      <a class="cvb" id="cvbtn" href="cv/CV_Marc_Alonso_CAT.pdf" target="_blank" rel="noopener" data-i="cvB">Descarrega el CV</a>
       <a href="https://www.linkedin.com/in/marc-alonso-bueno-267721a7/" target="_blank" rel="noopener">LinkedIn</a>
       <a href="https://www.instagram.com/marcalob97" target="_blank" rel="noopener">Instagram</a>
       <a href="https://x.com/MarcAloB" target="_blank" rel="noopener">X</a>
@@ -234,7 +247,7 @@ footer{padding:22px max(5vw,16px);font-size:14px;color:var(--mut);text-align:cen
 <script>
 {
 const T={
-ca:{podR:"Subscriu-te per RSS",aud:{glories:["Inauguració del parc de les Glòries","Notícia · Barcelona"],suicidi:["Augmenten les consultes sobre suïcidi","Notícia · Salut"],ecall:["Avisos automàtics d'accidents","Reportatge · L'eCall dels cotxes i la detecció d'accidents dels mòbils"],alemanya:["Arrenca la jornada electoral a Alemanya","Crònica"],sanremo:["Olly guanya el Festival de Sanremo","Crònica"],tibidabo:["El Tibidabo obre temporada i apuja preus","Notícia"],alzheimer:["Un test per detectar l'Alzheimer de manera precoç","Notícia · L'empresa catalana Starlab"],but:["Butlletí informatiu","Butlletí complet"]},nPod:"Podcast",podH:"Podcast",podP:"Els últims episodis del podcast d'El Condado. Escolta'ls aquí mateix o subscriu-t'hi des de la teva aplicació de podcasts.",podB:"Escolta a Spotify →",nCond:"El Condado",nDoc:"Documental",nRad:"Ràdio",nPerf:"Perfil",nCont:"Contacte",
+ca:{tzH:"Teaser del documental",tzB:"Veure el teaser a YouTube →",cvB:"Descarrega el CV",cvF:"cv/CV_Marc_Alonso_CAT.pdf",podR:"Subscriu-te per RSS",aud:{glories:["Inauguració del parc de les Glòries","Notícia · Barcelona"],suicidi:["Augmenten les consultes sobre suïcidi","Notícia · Salut"],ecall:["Avisos automàtics d'accidents","Reportatge · L'eCall dels cotxes i la detecció d'accidents dels mòbils"],alemanya:["Arrenca la jornada electoral a Alemanya","Crònica"],sanremo:["Olly guanya el Festival de Sanremo","Crònica"],tibidabo:["El Tibidabo obre temporada i apuja preus","Notícia"],alzheimer:["Un test per detectar l'Alzheimer de manera precoç","Notícia · L'empresa catalana Starlab"],but:["Butlletí informatiu","Butlletí complet"]},nPod:"Podcast",podH:"Podcast",podP:"Els últims episodis del podcast d'El Condado. Escolta'ls aquí mateix o subscriu-t'hi des de la teva aplicació de podcasts.",podB:"Escolta a Spotify →",nCond:"El Condado",nDoc:"Documental",nRad:"Ràdio",nPerf:"Perfil",nCont:"Contacte",
 chyron:"Periodista · Producció de TV, ràdio i premsa",h1:"Esport, cultura i política",
 lead:"Soc periodista i explico l'actualitat esportiva, cultural i política. A més, estic especialitzat en producció de televisió, ràdio i premsa. Amb El Condado som mitjà acreditat a la NFL, el Benidorm Fest i altres grans esdeveniments.",
 p2:"Combino rigor informatiu i narrativa audiovisual: investigo, escric, produeixo, presento i edito, tant en format llarg com en vídeo curt per a xarxes.",
@@ -250,15 +263,16 @@ dSyn:"Un relat sobre la fragilitat de l'èxit i la realitat de l'esport minorita
 acts:[["Primer acte","L'arribada de l'esport a Catalunya i l'època daurada dels anys 90."],["Segon acte","La desaparició del 2003 i la cara oculta de l'esport minoritari."],["Tercer acte","El retorn amb nova propietat i la temporada fallida del 2024."]],
 dPeople:"Testimonis",people:[["Jordi Brugnani","jugador"],["Christian Llitjós","periodista"],["Guillem Álvarez","front office"],["Carlota Vallecoccia","cap d'operacions"],["Jesús Angoy","llegat NFL Europe"]],
 radH:"Ràdio",radSub:"Producció i redacció en emissores públiques",
-radio:[["Catalunya Ràdio","Productor d'informatius: butlletins i Catalunya Migdia.","Juny – jul. 2026"],["Ràdio 4 · RNE","Pràctiques periodístiques de redacció, locució i producció.","Febr. – maig 2025"]],
+radio:[["Catalunya Ràdio","Productor d'informatius: butlletins i Catalunya Migdia. Producció en directe i tasques logístiques i operatives (320 h).","Juny – jul. 2026"],["Ràdio 4 · RNE","Producció, redacció i locució de notícies per als informatius de cap de setmana (228 h).","Febr. – maig 2025"]],
 butN:"Butlletí informatiu",audH:["Peces emeses","Ràdio 4"],audH2:["Proves d'estudi","Pràctiques a Ràdio 4, enregistrades en estudi"],
 pH:"Perfil",
 prof:[["Formació",[["Diploma d'Especialització en Producció de TV, Ràdio i Premsa","Universitat Autònoma de Barcelona · 2026"],["Grau en Periodisme","Universitat Autònoma de Barcelona · 2025"],["Grau en Educació Primària, menció d'Educació Física","Universitat de Barcelona · 2020"]]],
 ["Especialitats","tags:Periodisme esportiu|Periodisme cultural|Producció de TV|Producció de ràdio|Narrativa digital|Format curt i llarg|Edició de vídeo|Motion graphics|Podcast"],
 ["Eines","tags:DaVinci Resolve|Fusion|OBS Studio|CapCut|Canva|Riverside.fm"],
+["Comunicació",[["Community Manager · Barcelona Dragons","Abr. – set. 2024 · Contingut digital i comunicats oficials"],["Creador de contingut · El Condado","Des de nov. 2020 · Pòdcast i cobertures acreditades"]]],
 ["Idiomes",[["Català i castellà","Nadiu"],["Anglès","B2 certificat"]]]],
 ctH:"Parlem?",ctP:"Per a col<span class='pv'>·</span>laboracions, produccions o propostes de feina."},
-es:{podR:"Suscríbete por RSS",aud:{glories:["Inauguración del parque de las Glòries","Noticia · Barcelona"],suicidi:["Aumentan las consultas sobre suicidio","Noticia · Salud"],ecall:["Avisos automáticos de accidentes","Reportaje · El eCall de los coches y la detección de accidentes de los móviles"],alemanya:["Arranca la jornada electoral en Alemania","Crónica"],sanremo:["Olly gana el Festival de Sanremo","Crónica"],tibidabo:["El Tibidabo abre temporada y sube precios","Noticia"],alzheimer:["Un test para detectar el alzhéimer de forma precoz","Noticia · La empresa catalana Starlab"],but:["Boletín informativo","Boletín completo"]},nPod:"Podcast",podH:"Podcast",podP:"Los últimos episodios del podcast de El Condado. Escúchalos aquí mismo o suscríbete desde tu aplicación de pódcasts.",podB:"Escúchalo en Spotify →",nCond:"El Condado",nDoc:"Documental",nRad:"Radio",nPerf:"Perfil",nCont:"Contacto",
+es:{tzH:"Teaser del documental",tzB:"Ver el teaser en YouTube →",cvB:"Descarga el CV",cvF:"cv/CV_Marc_Alonso_ESP.pdf",podR:"Suscríbete por RSS",aud:{glories:["Inauguración del parque de las Glòries","Noticia · Barcelona"],suicidi:["Aumentan las consultas sobre suicidio","Noticia · Salud"],ecall:["Avisos automáticos de accidentes","Reportaje · El eCall de los coches y la detección de accidentes de los móviles"],alemanya:["Arranca la jornada electoral en Alemania","Crónica"],sanremo:["Olly gana el Festival de Sanremo","Crónica"],tibidabo:["El Tibidabo abre temporada y sube precios","Noticia"],alzheimer:["Un test para detectar el alzhéimer de forma precoz","Noticia · La empresa catalana Starlab"],but:["Boletín informativo","Boletín completo"]},nPod:"Podcast",podH:"Podcast",podP:"Los últimos episodios del podcast de El Condado. Escúchalos aquí mismo o suscríbete desde tu aplicación de pódcasts.",podB:"Escúchalo en Spotify →",nCond:"El Condado",nDoc:"Documental",nRad:"Radio",nPerf:"Perfil",nCont:"Contacto",
 chyron:"Periodista · Producción de TV, radio y prensa",h1:"Deporte, cultura y política",
 lead:"Soy periodista y cuento la actualidad deportiva, cultural y política. Además, estoy especializado en producción de televisión, radio y prensa. Con El Condado somos medio acreditado en la NFL, el Benidorm Fest y otros grandes eventos.",
 p2:"Combino rigor informativo y narrativa audiovisual: investigo, escribo, produzco, presento y edito, tanto en formato largo como en vídeo corto para redes.",
@@ -274,15 +288,16 @@ dSyn:"Un relato sobre la fragilidad del éxito y la realidad del deporte minorit
 acts:[["Primer acto","La llegada del deporte a Cataluña y la época dorada de los 90."],["Segundo acto","La desaparición de 2003 y la cara oculta del deporte minoritario."],["Tercer acto","El regreso con nueva propiedad y la temporada fallida de 2024."]],
 dPeople:"Testimonios",people:[["Jordi Brugnani","jugador"],["Christian Llitjós","periodista"],["Guillem Álvarez","front office"],["Carlota Vallecoccia","jefa de operaciones"],["Jesús Angoy","legado NFL Europe"]],
 radH:"Radio",radSub:"Producción y redacción en emisoras públicas",
-radio:[["Catalunya Ràdio","Productor de informativos: boletines y Catalunya Migdia.","Jun. – jul. 2026"],["Ràdio 4 · RNE","Prácticas periodísticas de redacción, locución y producción.","Feb. – may. 2025"]],
+radio:[["Catalunya Ràdio","Productor de informativos: boletines y Catalunya Migdia. Producción en directo y tareas logísticas y operativas (320 h).","Jun. – jul. 2026"],["Ràdio 4 · RNE","Producción, redacción y locución de noticias para los informativos de fin de semana (228 h).","Feb. – may. 2025"]],
 butN:"Boletín informativo",audH:["Piezas emitidas","Ràdio 4"],audH2:["Pruebas de estudio","Prácticas en Ràdio 4, grabadas en estudio"],
 pH:"Perfil",
 prof:[["Formación",[["Diploma de Especialización en Producción de TV, Radio y Prensa","Universitat Autònoma de Barcelona · 2026"],["Grado en Periodismo","Universitat Autònoma de Barcelona · 2025"],["Grado en Educación Primaria, mención en Educación Física","Universitat de Barcelona · 2020"]]],
 ["Especialidades","tags:Periodismo deportivo|Periodismo cultural|Producción de TV|Producción de radio|Narrativa digital|Formato corto y largo|Edición de vídeo|Motion graphics|Podcast"],
 ["Herramientas","tags:DaVinci Resolve|Fusion|OBS Studio|CapCut|Canva|Riverside.fm"],
+["Comunicación",[["Community Manager · Barcelona Dragons","Abr. – sep. 2024 · Contenido digital y comunicados oficiales"],["Creador de contenido · El Condado","Desde nov. 2020 · Pódcast y coberturas acreditadas"]]],
 ["Idiomas",[["Catalán y castellano","Nativo"],["Inglés","B2 certificado"]]]],
 ctH:"¿Hablamos?",ctP:"Para colaboraciones, producciones o propuestas de trabajo."},
-en:{podR:"Subscribe via RSS",aud:{glories:["Glòries Park opens","News piece · Barcelona"],suicidi:["Rise in suicide-related consultations","News piece · Health"],ecall:["Automatic crash alerts","Feature · eCall in cars and crash detection on smartphones"],alemanya:["Polling day gets under way in Germany","Report"],sanremo:["Olly wins the Sanremo Festival","Report"],tibidabo:["Tibidabo opens its season with higher prices","News piece"],alzheimer:["A test for early detection of Alzheimer's","News piece · Catalan company Starlab"],but:["News bulletin","Full bulletin"]},nPod:"Podcast",podH:"Podcast",podP:"The latest episodes of the El Condado podcast. Listen right here or subscribe in your podcast app.",podB:"Listen on Spotify →",nCond:"El Condado",nDoc:"Documentary",nRad:"Radio",nPerf:"Profile",nCont:"Contact",
+en:{tzH:"Documentary teaser",tzB:"Watch the teaser on YouTube →",cvB:"Download CV",cvF:"cv/CV_Marc_Alonso_ENG.pdf",podR:"Subscribe via RSS",aud:{glories:["Glòries Park opens","News piece · Barcelona"],suicidi:["Rise in suicide-related consultations","News piece · Health"],ecall:["Automatic crash alerts","Feature · eCall in cars and crash detection on smartphones"],alemanya:["Polling day gets under way in Germany","Report"],sanremo:["Olly wins the Sanremo Festival","Report"],tibidabo:["Tibidabo opens its season with higher prices","News piece"],alzheimer:["A test for early detection of Alzheimer's","News piece · Catalan company Starlab"],but:["News bulletin","Full bulletin"]},nPod:"Podcast",podH:"Podcast",podP:"The latest episodes of the El Condado podcast. Listen right here or subscribe in your podcast app.",podB:"Listen on Spotify →",nCond:"El Condado",nDoc:"Documentary",nRad:"Radio",nPerf:"Profile",nCont:"Contact",
 chyron:"Journalist · TV, radio and print production",h1:"Sport, culture and politics",
 lead:"I'm a journalist covering sport, culture and politics, and I specialise in television, radio and print production. With El Condado, we're accredited media at the NFL, Benidorm Fest and other major events.",
 p2:"I combine rigorous reporting with audiovisual storytelling: I research, write, produce, present and edit, both long-form pieces and short videos for social media.",
@@ -298,12 +313,13 @@ dSyn:"A story about the fragility of success and the reality of minority sport i
 acts:[["Act one","American football arrives in Catalonia and the golden era of the 90s."],["Act two","The 2003 disappearance and the hidden side of minority sport."],["Act three","The return under new ownership and the failed 2024 season."]],
 dPeople:"Interviewees",people:[["Jordi Brugnani","player"],["Christian Llitjós","journalist"],["Guillem Álvarez","front office"],["Carlota Vallecoccia","head of operations"],["Jesús Angoy","NFL Europe legend"]],
 radH:"Radio",radSub:"Production and newsroom work at public broadcasters",
-radio:[["Catalunya Ràdio","News producer for the hourly bulletins and the midday news programme Catalunya Migdia.","Jun – Jul 2026"],["Ràdio 4 · RNE","Journalism internship: reporting, voicing and production.","Feb – May 2025"]],
+radio:[["Catalunya Ràdio","News producer for the hourly bulletins and the midday news programme Catalunya Migdia, including live production and logistics (320 hours).","Jun – Jul 2026"],["Ràdio 4 · RNE","Producing, writing and voicing news for the weekend news service (228 hours).","Feb – May 2025"]],
 butN:"News bulletin",audH:["Broadcast pieces","Ràdio 4"],audH2:["Studio practice pieces","Recorded in the studio during my Ràdio 4 internship (not broadcast)"],
 pH:"Profile",
 prof:[["Education",[["Postgraduate Diploma in TV, Radio and Print Production","Autonomous University of Barcelona (UAB) · 2026"],["BA in Journalism","Autonomous University of Barcelona (UAB) · 2025"],["BA in Primary Education, Physical Education specialisation","University of Barcelona (UB) · 2020"]]],
 ["Expertise","tags:Sports journalism|Cultural journalism|TV production|Radio production|Digital storytelling|Short- and long-form video|Video editing|Motion graphics|Podcasting"],
 ["Tools","tags:DaVinci Resolve|Fusion|OBS Studio|CapCut|Canva|Riverside.fm"],
+["Communications",[["Community Manager · Barcelona Dragons","Apr – Sep 2024 · Digital content and official press releases"],["Content creator · El Condado","Since Nov 2020 · Podcast and accredited event coverage"]]],
 ["Languages",[["Catalan and Spanish","Native"],["English","B2 certified"]]]],
 ctH:"Let's talk",ctP:"For collaborations, productions or job opportunities."}
 };
@@ -339,6 +355,7 @@ function render(){
   $("reels").innerHTML=R.map((id,i)=>`<div class="ig"><iframe src="https://www.instagram.com/reel/${id}/embed" loading="lazy" allowtransparency="true" title="${t.reel} ${i+1}"></iframe></div>`).join("");
   $("acts").innerHTML=t.acts.map(([a,b])=>`<div><b>${a}</b><span>${b}</span></div>`).join("");
   $("people").innerHTML=t.people.map(([n,r])=>`<span>${n} <em>· ${r}</em></span>`).join("");
+  {const c=$("cvbtn");if(c)c.href=t.cvF}
   $("audio").innerHTML=[t.audH,t.audH2].map((g,i)=>`<div><h3>${g[0]}</h3><div class="sub">${g[1]}</div>${A[i].map(([f,d])=>{const [n,sb]=t.aud[f];return `<div class="trk${cur===f?" on":""}" data-a="${f}"><button aria-label="${n}">${cur===f&&!player.paused?icS:icP}</button><div><div class="nm">${n}</div><div class="sb">${sb}</div><div class="bar"><i></i></div></div><time>${d}</time></div>`}).join("")}</div>`).join("");
   $("radioRows").innerHTML=t.radio.map(([a,b,c])=>`<div class="row"><h3>${a}</h3><p>${b}</p><time>${c}</time></div>`).join("");
   $("profile").innerHTML=t.prof.map(([h,c])=>`<div class="box"><h3>${h}</h3>${typeof c==="string"?`<div class="tags">${c.slice(5).split("|").map(x=>`<span>${x}</span>`).join("")}</div>`:`<ul>${c.map(([a,b])=>`<li>${a}<small>${b}</small></li>`).join("")}</ul>`}</div>`).join("");
@@ -352,8 +369,8 @@ const sync=()=>{document.querySelectorAll(".trk").forEach(tr=>{const on=tr.datas
 document.querySelector(".lang").addEventListener("click",e=>{const b=e.target.closest("button");if(!b)return;lang=b.dataset.l;try{localStorage.setItem("ma-lang",lang)}catch(x){}render()});
 $("filters").addEventListener("click",e=>{const b=e.target.closest("button");if(!b)return;filt=b.dataset.f;render()});
 const playYT=el=>{if(el.querySelector("iframe"))return;el.innerHTML=`<iframe src="https://www.youtube-nocookie.com/embed/${el.dataset.yt}?autoplay=1&rel=0" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen title="YouTube"></iframe>`};
-$("videos").addEventListener("click",e=>{const y=e.target.closest(".yt");if(y)playYT(y)});
-$("videos").addEventListener("keydown",e=>{const y=e.target.closest(".yt");if(y&&(e.key==="Enter"||e.key===" ")){e.preventDefault();playYT(y)}});
+document.addEventListener("click",e=>{const y=e.target.closest(".yt");if(y)playYT(y)});
+document.addEventListener("keydown",e=>{const y=e.target.closest(".yt");if(y&&(e.key==="Enter"||e.key===" ")){e.preventDefault();playYT(y)}});
 render();
 }
 </script>
