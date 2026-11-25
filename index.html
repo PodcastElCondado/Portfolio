@@ -469,8 +469,13 @@ const gc=(path,title)=>{try{window.goatcounter&&window.goatcounter.count&&window
 const lazyIO=("IntersectionObserver" in window)?new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){const f=e.target;if(!f.getAttribute("src"))f.src=f.dataset.src;lazyIO.unobserve(f)}}),{rootMargin:"250px 0px"}):null;
 const lazyFrames=()=>document.querySelectorAll("iframe[data-src]:not([src])").forEach(f=>lazyIO?lazyIO.observe(f):(f.src=f.dataset.src));
 let userMoved=false;["touchstart","wheel","keydown","mousedown"].forEach(ev=>addEventListener(ev,()=>{userMoved=true},{passive:true}));
+// Si el navegador restaura una posició antiga (tornar enrere, pestanya recuperada, iOS/Android), tornem a dalt.
+const goTop=()=>{if(!location.hash&&!userMoved)scrollTo(0,0)};
+addEventListener("pageshow",e=>{if(e.persisted){userMoved=false;goTop()}});
+addEventListener("load",()=>{goTop();requestAnimationFrame(goTop);setTimeout(goTop,300)});
+document.addEventListener("visibilitychange",()=>{if(document.visibilityState==="visible"&&performance.now()<15000)goTop()});
 if(!location.hash){try{history.scrollRestoration="manual"}catch(e){}
-  const keepTop=()=>{if(!userMoved&&scrollY>0)scrollTo(0,0)};addEventListener("scroll",keepTop,{passive:true});setTimeout(()=>removeEventListener("scroll",keepTop),8000);}
+  const keepTop=()=>{if(!userMoved&&!location.hash&&scrollY>0)scrollTo(0,0)};addEventListener("scroll",keepTop,{passive:true});setTimeout(()=>removeEventListener("scroll",keepTop),8000);}
 const playYT=el=>{if(el.querySelector("iframe"))return;gc("video-"+el.dataset.yt,el.getAttribute("aria-label")||"video");el.innerHTML=`<iframe src="https://www.youtube-nocookie.com/embed/${el.dataset.yt}?autoplay=1&rel=0" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen title="YouTube"></iframe>`};
 document.addEventListener("click",e=>{const y=e.target.closest(".yt");if(y)playYT(y)});
 document.addEventListener("keydown",e=>{const y=e.target.closest(".yt");if(y&&(e.key==="Enter"||e.key===" ")){e.preventDefault();playYT(y)}});
